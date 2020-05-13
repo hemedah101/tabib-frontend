@@ -8,20 +8,22 @@
 
 import * as React from 'react';
 import { Helmet } from 'react-helmet-async';
-import { Switch, Route, BrowserRouter } from 'react-router-dom';
+import { Switch, Route, Router } from 'react-router-dom';
+import { useInjectReducer } from 'redux-injectors';
 
 import { GlobalStyle } from 'styles/global-styles';
+import { sliceKey, reducer } from './slice';
 
 import { HomePage } from './containers/HomePage/Loadable';
 import { NotFoundPage } from './components/NotFoundPage/Loadable';
-import { useInjectReducer } from 'redux-injectors';
-import { sliceKey, reducer } from './slice';
+import { LoginPage } from './containers/LoginPage/Loadable';
+import { history } from 'utils/history';
 
 export function App() {
   useInjectReducer({ key: sliceKey, reducer: reducer });
 
   return (
-    <BrowserRouter>
+    <Router history={history}>
       <Helmet
         titleTemplate="%s - React Boilerplate"
         defaultTitle="React Boilerplate"
@@ -31,9 +33,10 @@ export function App() {
 
       <Switch>
         <Route exact path="/" component={HomePage} />
+        <Route path="/auth/login" component={LoginPage} />
         <Route component={NotFoundPage} />
       </Switch>
       <GlobalStyle />
-    </BrowserRouter>
+    </Router>
   );
 }

@@ -5,9 +5,9 @@ import { initialState } from './slice';
 
 const selectDomain = (state: RootState) => state.global || initialState;
 
-export const selectIsAuthenticated = createSelector(
+export const selectLoading = createSelector(
   [selectDomain],
-  globalState => globalState.isAuthenticated,
+  globalState => globalState.loading,
 );
 
 export const selectName = createSelector(

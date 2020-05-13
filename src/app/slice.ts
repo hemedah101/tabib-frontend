@@ -1,10 +1,11 @@
 import { createSlice } from 'utils/@reduxjs/toolkit';
 import { PayloadAction } from '@reduxjs/toolkit';
+
 import { ContainerState, UserModel } from './types';
+import { LoginParams } from './containers/LoginPage/types';
 
 // The initial state of the Global container
 export const initialState: ContainerState = {
-  isAuthenticated: false,
   user: {
     name: '',
     avatar: '',
@@ -20,16 +21,8 @@ const globalSlice = createSlice({
   name: 'global',
   initialState,
   reducers: {
-    authenticate(state) {
+    loginUser(state, action: PayloadAction<LoginParams>) {
       state.loading = true;
-    },
-    authenticateSuccess(state) {
-      state.isAuthenticated = true;
-      state.loading = false;
-    },
-    authenticateError(state) {
-      state.isAuthenticated = false;
-      state.loading = false;
     },
     loadUser(state) {
       state.loading = true;

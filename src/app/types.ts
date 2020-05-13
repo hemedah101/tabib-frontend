@@ -1,6 +1,5 @@
 /* --- STATE --- */
 export interface GlobalState {
-  isAuthenticated: boolean;
   user: {
     name: string;
     avatar: string;
