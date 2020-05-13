@@ -14,8 +14,12 @@ import { GlobalStyle } from 'styles/global-styles';
 
 import { HomePage } from './containers/HomePage/Loadable';
 import { NotFoundPage } from './components/NotFoundPage/Loadable';
+import { useInjectReducer } from 'redux-injectors';
+import { sliceKey, reducer } from './slice';
 
 export function App() {
+  useInjectReducer({ key: sliceKey, reducer: reducer });
+
   return (
     <BrowserRouter>
       <Helmet
