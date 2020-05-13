@@ -8,22 +8,24 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   body {
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    /* font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; */
   }
 
   #root {
     min-height: 100%;
     min-width: 100%;
+    background-color: #f0f2f5;
+    min-height: 100vh;
   }
 
   p,
   label {
-    font-family: Georgia, Times, 'Times New Roman', serif;
-    line-height: 1.5em;
+    /* font-family: Georgia, Times, 'Times New Roman', serif; */
+    /* line-height: 1.5em; */
   }
 
   input, select {
-    font-family: inherit;
-    font-size: inherit;
+    /* font-family: inherit; */
+    /* font-size: inherit; */
   }
 `;
