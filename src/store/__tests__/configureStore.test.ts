@@ -1,5 +1,4 @@
 import { configureAppStore } from '../configureStore';
-import { history } from '../../utils/history';
 
 describe('configureStore', () => {
   it('should return a store with injected enhancers', () => {
@@ -11,11 +10,11 @@ describe('configureStore', () => {
         injectedSagas: expect.any(Object),
       }),
     );
-    expect(store.getState().router).toBeDefined();
+    expect(store.getState()).toBeDefined();
   });
 
   it('should return a store with router in state', () => {
-    const store = configureAppStore(history);
-    expect(store.getState().router).toBeDefined();
+    const store = configureAppStore();
+    expect(store.getState()).toBeDefined();
   });
 });
