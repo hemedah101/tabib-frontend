@@ -11,7 +11,7 @@ let inMemoryToken: JWT = {
 
 export function setToken(token: string): void {
   inMemoryToken.token = token;
-  inMemoryToken.expiry = Date.now() + 1 * 60 * 1000;
+  inMemoryToken.expiry = Date.now() + 15 * 60 * 1000;
 }
 
 export async function getToken(): Promise<string> {
@@ -50,8 +50,7 @@ export async function logout(): Promise<void> {
     `;
     await client.mutate(mutation);
 
-    inMemoryToken.token = '';
-    inMemoryToken.expiry = Date.now();
+    resetToken();
   }
 
   // TODO to support logging out from all windows
@@ -60,5 +59,10 @@ export async function logout(): Promise<void> {
 }
 
 export function isAuthenticated(): boolean {
-  return inMemoryToken.expiry > Date.now();
+  return inMemoryToken.token.length > 0;
+}
+
+function resetToken(): void {
+  inMemoryToken.token = '';
+  inMemoryToken.expiry = Date.now();
 }
