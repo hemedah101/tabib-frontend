@@ -56,7 +56,7 @@ const AvatarHeaderDropdown = () => {
     >
       <Wrapper>
         <AvatarWrapper size="small" alt="avatar" src={avatar} />
-        <span className="name">{name}</span>
+        <span style={{ marginLeft: '8px' }}>{name}</span>
       </Wrapper>
     </AvatarDropdown>
   );
@@ -90,8 +90,6 @@ const Wrapper = styled.span`
   vertical-align: middle;
 `;
 const AvatarWrapper = styled(Avatar)`
-  margin: 20px 0;
-  margin: 0px 8px;
   vertical-align: top;
   background: rgba(255, 255, 255, 0.85);
 `;
