@@ -6,6 +6,7 @@ import { actions } from 'app/slice';
 import { HttpService } from 'utils/http/httpService';
 import { history } from 'utils/history';
 import { LoginParams } from './types';
+import { setToken } from 'utils/auth/inMemory';
 
 export function* loginUser(action: PayloadAction<LoginParams>) {
   try {
@@ -29,7 +30,8 @@ export function* loginUser(action: PayloadAction<LoginParams>) {
 
     const { login } = yield client.mutate(mutation, payload);
     yield put(actions.userLoaded(login.user));
-    yield history.push('/');
+    setToken(login.token);
+    history.push('/');
   } catch (error) {
     yield put(actions.userError());
   }

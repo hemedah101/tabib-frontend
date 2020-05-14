@@ -24,7 +24,7 @@ const LoginForm = () => {
     <Form form={form} name="login" onFinish={onFinish}>
       <Form.Item
         name="email"
-        validateTrigger="submit"
+        validateTrigger={false}
         rules={[
           { required: true, message: 'Email is required!' },
           {
