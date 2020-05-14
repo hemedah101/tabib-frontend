@@ -2,7 +2,8 @@ import gql from 'graphql-tag';
 
 import { HttpService } from 'utils/http/httpService';
 import { history } from 'utils/history';
-import { JWT } from './types';
+import { JWT, refreshTokenPayload } from './types';
+import { UserModel } from 'app/types';
 
 let inMemoryToken: JWT = {
   token: '',
@@ -21,20 +22,30 @@ export async function getToken(): Promise<string> {
   return inMemoryToken.token;
 }
 
-export async function refreshToken(): Promise<void> {
+export async function refreshToken(): Promise<UserModel | void> {
   const client = new HttpService();
   const query = gql`
-    mutation {
+    {
       refreshToken {
         token
+        user {
+          verified
+          role
+          review
+          gender
+          name
+          avatar
+        }
       }
     }
   `;
 
   try {
-    const data = await client.mutate(query);
-    const token = data.refreshToken.token;
+    const {
+      refreshToken: { token, user },
+    }: refreshTokenPayload = await client.query(query);
     setToken(token);
+    return user;
   } catch (error) {
     await logout();
   }
