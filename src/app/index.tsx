@@ -28,6 +28,7 @@ import { HomePage } from './containers/HomePage/Loadable';
 import { NotFoundPage } from './components/NotFoundPage/Loadable';
 import { LoginPage } from './containers/LoginPage/Loadable';
 import { CustomComponent } from './components/CustomComponent';
+import { RegisterPage } from './containers/RegisterPage/Loadable';
 
 export function App() {
   useInjectReducer({ key: sliceKey, reducer: reducer });
@@ -67,6 +68,7 @@ export function App() {
           <Switch>
             <ProtectedRoute exact path="/" component={HomePage} />
             <CustomRoute path="/auth/login" component={LoginPage} />
+            <CustomRoute path="/auth/register" component={RegisterPage} />
             <Route component={NotFoundPage} />
           </Switch>
         </Layout.Content>

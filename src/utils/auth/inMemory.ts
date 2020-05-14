@@ -47,7 +47,9 @@ export async function refreshToken(): Promise<UserModel | void> {
     setToken(token);
     return user;
   } catch (error) {
-    await logout();
+    if (!history.location.pathname.includes('auth')) {
+      await logout();
+    }
   }
 }
 

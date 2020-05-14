@@ -12,8 +12,8 @@ import { useInjectSaga } from 'redux-injectors';
 import { sliceKey } from 'app/slice';
 import { loginPageSaga } from './saga';
 
-import { LanguageSwitch } from './LanguageSwitch';
 import LoginForm from './LoginForm';
+import { LanguageSwitch } from 'app/components/LanguageSwitch';
 
 interface Props {}
 

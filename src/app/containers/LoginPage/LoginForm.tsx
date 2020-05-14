@@ -68,7 +68,7 @@ const LoginForm = () => {
         >
           Log in
         </LoginButton>
-        Or <Link to="/user/register">register now!</Link>
+        Or <RegisterLink to="/auth/register">register now!</RegisterLink>
       </Form.Item>
     </Form>
   );
@@ -81,4 +81,7 @@ const ForgotLink = styled(Link)`
 `;
 const LoginButton = styled(Button)`
   width: 100%;
+`;
+const RegisterLink = styled(Link)`
+  font-size: 16px;
 `;
