@@ -1,45 +1,30 @@
 import React from 'react';
-import styled from 'styled-components/macro';
-import { P } from './P';
 import { Helmet } from 'react-helmet-async';
 
+import { Result, Button } from 'antd';
+
+import { history } from 'utils/history';
+
 export function NotFoundPage() {
+  const backHome = (): void => history.push('/');
+
   return (
     <>
       <Helmet>
         <title>404 Page Not Found</title>
         <meta name="description" content="Page not found" />
       </Helmet>
-      <Wrapper>
-        <Title>
-          4
-          <span role="img" aria-label="Crying Face">
-            😢
-          </span>
-          4
-        </Title>
-        <P>Page not found.</P>
-      </Wrapper>
+      <Result
+        status="404"
+        title="404"
+        subTitle={'Sorry, this page does not exist'}
+        extra={
+          <Button type="primary" onClick={backHome}>
+            {'Back Home'}
+          </Button>
+        }
+        style={{ backgroundColor: '#f0f2f5' }}
+      />
     </>
   );
 }
-
-const Wrapper = styled.div`
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  min-height: 320px;
-`;
-
-const Title = styled.div`
-  margin-top: -8vh;
-  font-weight: bold;
-  color: ${p => p.theme.text};
-  font-size: 3.375rem;
-
-  span {
-    font-size: 3.125rem;
-  }
-`;
