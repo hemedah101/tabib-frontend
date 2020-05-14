@@ -12,7 +12,7 @@ import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import * as serviceWorker from 'serviceWorker';
-import 'sanitize.css/sanitize.css';
+// import 'sanitize.css/sanitize.css';
 
 // Import root app
 import { App } from 'app';
