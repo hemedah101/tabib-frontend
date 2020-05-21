@@ -9,7 +9,7 @@ export const CustomComponent: React.FC<any> = ({
     <Route
       {...rest}
       render={props => {
-        const withHeaderRoutes = ['/'];
+        const withHeaderRoutes = ['/', '/account/settings'];
         if (withHeaderRoutes.includes(props.location.pathname)) {
           return <Component {...props} {...rest} />;
         }

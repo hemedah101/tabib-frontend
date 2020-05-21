@@ -1,4 +1,5 @@
 import { GlobalState } from 'app/types';
+import { AccountPageState } from 'app/containers/AccountPage/types';
 // [IMPORT NEW CONTAINERSTATE ABOVE] < Needed for generating containers seamlessly
 
 /* 
@@ -7,5 +8,6 @@ import { GlobalState } from 'app/types';
 */
 export interface RootState {
   global?: GlobalState;
+  accountPage?: AccountPageState;
   // [INSERT NEW REDUCER KEY ABOVE] < Needed for generating containers seamlessly
 }

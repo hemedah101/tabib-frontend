@@ -29,6 +29,7 @@ import { NotFoundPage } from './components/NotFoundPage/Loadable';
 import { LoginPage } from './containers/LoginPage/Loadable';
 import { CustomComponent } from './components/CustomComponent';
 import { RegisterPage } from './containers/RegisterPage/Loadable';
+import { AccountPage } from './containers/AccountPage/Loadable';
 
 export function App() {
   useInjectReducer({ key: sliceKey, reducer: reducer });
@@ -60,6 +61,7 @@ export function App() {
         <Layout.Content
           style={{
             margin: '24px',
+            paddingTop: '64px',
             // backgroundColor: history.location.pathname.includes('/login')
             //   ? '#f0f2f5'
             //   : '#fff',
@@ -69,6 +71,13 @@ export function App() {
             <ProtectedRoute exact path="/" component={HomePage} />
             <CustomRoute path="/auth/login" component={LoginPage} />
             <CustomRoute path="/auth/register" component={RegisterPage} />
+
+            <ProtectedRoute
+              exact
+              path="/account/settings"
+              component={AccountPage}
+            />
+
             <Route component={NotFoundPage} />
           </Switch>
         </Layout.Content>

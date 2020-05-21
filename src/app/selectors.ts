@@ -10,6 +10,11 @@ export const selectLoading = createSelector(
   globalState => globalState.loading,
 );
 
+export const selectUser = createSelector(
+  [selectDomain],
+  globalState => globalState.user,
+);
+
 export const selectName = createSelector(
   [selectDomain],
   globalState => globalState.user.name,

@@ -11,6 +11,7 @@ import { history } from 'utils/history';
 
 import LanguageHeaderDropdown from './LanguageHeaderDropdown';
 import AvatarHeaderDropdown from './AvatarHeaderDropdown';
+import NavMenu from './NavMenu';
 
 interface Props {}
 
@@ -18,14 +19,18 @@ export function Header(props: Props) {
   return (
     <GlobalHeader>
       <Logo onClick={() => history.push('/')} />
+
+      <NavMenu />
+
       <LanguageHeaderDropdown />
+
       <AvatarHeaderDropdown />
     </GlobalHeader>
   );
 }
 
 const GlobalHeader = styled(Layout.Header)`
-  /* position: fixed; */
+  position: fixed;
   z-index: 9;
   width: 100%;
   transition: width 0.2s;

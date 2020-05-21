@@ -20,7 +20,7 @@ export function Footer(props: Props) {
 
 const GlobalFooter = styled(Layout.Footer)`
   text-align: center;
-  position: absolute;
+  position: relative;
   left: 0;
   right: 0;
   bottom: 0;

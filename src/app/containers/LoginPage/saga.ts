@@ -17,12 +17,15 @@ export function* loginUser(action: PayloadAction<LoginParams>) {
         login(input: { email: $email, password: $password }) {
           token
           user {
+            email
             name
             avatar
             verified
             review
             role
             gender
+            relationship
+            job
           }
         }
       }

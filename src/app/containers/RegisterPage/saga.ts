@@ -18,7 +18,7 @@ export function* registerUser(action: PayloadAction<RegisterParams>) {
         $email: String!
         $password: String!
         $dateOfBirth: String!
-        $gender: GenderEnum!
+        $gender: String!
       ) {
         signup(
           input: {

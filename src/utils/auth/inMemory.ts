@@ -35,6 +35,8 @@ export async function refreshToken(): Promise<UserModel | void> {
           gender
           name
           avatar
+          relationship
+          job
         }
       }
     }
