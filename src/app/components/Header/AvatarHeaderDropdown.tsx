@@ -24,24 +24,24 @@ const AvatarHeaderDropdown = () => {
 
   const onMenuClick = async (event: ClickParam): Promise<void> => {
     const { key } = event;
-    key === 'logout' ? await logout() : history.push(key);
+    key === '/logout' ? await logout() : history.push(key);
   };
 
   const avatarMenu = (
     <AvatarMenu selectedKeys={[]} onClick={onMenuClick}>
-      <Menu.Item key="account">
+      <Menu.Item key="/account/settings">
         <UserOutlined />
         Account
       </Menu.Item>
 
-      <Menu.Item key="support">
+      <Menu.Item key="/support">
         <SettingOutlined />
         Support
       </Menu.Item>
 
       <Menu.Divider />
 
-      <Menu.Item key="logout">
+      <Menu.Item key="/logout">
         <LogoutOutlined />
         Logout
       </Menu.Item>
